@@ -1,0 +1,11 @@
+{
+  "name": "signal-lantern",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A dependency-free focus dashboard.",
+  "scripts": {
+    "serve": "node scripts/serve.js",
+    "test": "node --test"
+  }
+}
