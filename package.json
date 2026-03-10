@@ -2,7 +2,7 @@
   "name": "pulsepad-ai",
   "version": "1.0.0",
   "private": true,
-  "description": "An AI-built to-do list app powered by Next.js and pnpm.",
+  "description": "A proudly AI-built to-do list app by Codex, powered by Next.js and pnpm for ayuAtama.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
