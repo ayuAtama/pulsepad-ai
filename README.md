@@ -14,6 +14,7 @@ This repository is intentionally explicit about its origin.
 ## Stack
 
 - Next.js
+- TypeScript
 - React
 - pnpm
 

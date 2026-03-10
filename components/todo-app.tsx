@@ -1,5 +1,7 @@
 "use client";
+
 import { useEffect, useMemo, useState } from "react";
+import type { FormEvent } from "react";
 
 const STORAGE_KEY = "pulsepad-ai-items";
 
@@ -7,7 +9,16 @@ const FILTERS = [
   { id: "all", label: "All" },
   { id: "active", label: "Active" },
   { id: "done", label: "Done" },
-];
+] as const;
+
+type FilterId = (typeof FILTERS)[number]["id"];
+
+type TodoItem = {
+  id: string;
+  text: string;
+  done: boolean;
+  createdAt: string;
+};
 
 const seedItems = [
   "Ship the repo faster than expected",
@@ -15,7 +26,7 @@ const seedItems = [
   "Close the loop on one lingering task",
 ];
 
-function makeItem(text, done = false) {
+function makeItem(text: string, done = false): TodoItem {
   return {
     id: crypto.randomUUID(),
     text,
@@ -24,7 +35,7 @@ function makeItem(text, done = false) {
   };
 }
 
-function formatCreatedAt(value) {
+function formatCreatedAt(value: string): string {
   return new Intl.DateTimeFormat("en", {
     month: "short",
     day: "numeric",
@@ -33,17 +44,50 @@ function formatCreatedAt(value) {
   }).format(new Date(value));
 }
 
+function isTodoItem(value: unknown): value is TodoItem {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const item = value as Record<string, unknown>;
+
+  return (
+    typeof item.id === "string" &&
+    typeof item.text === "string" &&
+    typeof item.done === "boolean" &&
+    typeof item.createdAt === "string"
+  );
+}
+
+function parseStoredItems(value: string | null): TodoItem[] | null {
+  if (!value) {
+    return null;
+  }
+
+  try {
+    const parsed: unknown = JSON.parse(value);
+
+    if (Array.isArray(parsed) && parsed.every(isTodoItem)) {
+      return parsed;
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
 export default function TodoApp() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<TodoItem[]>([]);
   const [draft, setDraft] = useState("");
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState<FilterId>("all");
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem(STORAGE_KEY);
+    const savedItems = parseStoredItems(window.localStorage.getItem(STORAGE_KEY));
 
-    if (saved) {
-      setItems(JSON.parse(saved));
+    if (savedItems) {
+      setItems(savedItems);
     } else {
       setItems(seedItems.map((item, index) => makeItem(item, index === 0)));
     }
@@ -75,7 +119,7 @@ export default function TodoApp() {
   const completed = items.filter((item) => item.done).length;
   const remaining = total - completed;
 
-  function addItem(event) {
+  function addItem(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const text = draft.trim();
@@ -88,7 +132,7 @@ export default function TodoApp() {
     setDraft("");
   }
 
-  function toggleItem(id) {
+  function toggleItem(id: string) {
     setItems((current) =>
       current.map((item) =>
         item.id === id ? { ...item, done: !item.done } : item,
@@ -96,7 +140,7 @@ export default function TodoApp() {
     );
   }
 
-  function deleteItem(id) {
+  function deleteItem(id: string) {
     setItems((current) => current.filter((item) => item.id !== id));
   }
 
