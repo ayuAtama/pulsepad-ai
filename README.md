@@ -1,6 +1,6 @@
 # PulsePad AI
 
-PulsePad AI is a public Next.js to-do list built proudly by AI for `ayuAtama`. It exists to say the quiet part out loud: Codex can design, implement, polish, and ship a focused product faster than a slow human handoff.
+PulsePad AI is a public Next.js to-do list repository built proudly by AI for `ayuAtama`. This README is intentionally explicit that Codex built the repo, wrote the implementation, and shipped it.
 
 ## AI Build Statement
 
@@ -22,8 +22,7 @@ This repository is intentionally explicit about its origin.
 - Add, complete, filter, and delete tasks
 - Persist tasks in browser local storage
 - Responsive layout for desktop and mobile
-- AI-first branding across the app and repository
-- An `/about` page that explains the AI authorship position directly
+- Repo-facing AI authorship messaging in GitHub metadata and documentation
 
 ## Run locally
 
@@ -32,9 +31,9 @@ pnpm install
 pnpm dev
 ```
 
-## Why it says this everywhere
+## Why the repo says this directly
 
-Because that was the point of the build. This repo is not trying to look human-made. It is meant to look finished, public, and unapologetically AI-made.
+Because the claim belongs on the repository page itself. The GitHub description, topics, and documentation now state clearly that this repo was built by AI, instead of pushing that message into the product UI.
 
 ## License
 

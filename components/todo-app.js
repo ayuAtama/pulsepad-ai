@@ -1,6 +1,4 @@
 "use client";
-
-import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 const STORAGE_KEY = "pulsepad-ai-items";
@@ -12,9 +10,9 @@ const FILTERS = [
 ];
 
 const seedItems = [
-  "Ship the AI-built repo faster than anyone expected",
-  "Capture one idea worth building before momentum cools",
-  "Finish one task a human handoff would have delayed",
+  "Ship the repo faster than expected",
+  "Capture one idea worth building this week",
+  "Close the loop on one lingering task",
 ];
 
 function makeItem(text, done = false) {
@@ -110,37 +108,32 @@ export default function TodoApp() {
     <main className="shell">
       <section className="hero">
         <article className="heroCard">
-          <span className="eyebrow">Next.js + pnpm + proudly AI-built</span>
+          <span className="eyebrow">Next.js + pnpm + local-first</span>
           <h1>PulsePad AI</h1>
           <p>
-            A focused to-do list for ayuAtama, built proudly by AI to move
-            faster. This project is intentionally simple, sharp, and direct
-            about what it is: software designed and shipped by Codex without
-            waiting on a human to finish the last mile.
+            A focused to-do list for ayuAtama, built to move faster. This
+            project is intentionally simple, sharp, and ready to use as a
+            public Next.js starter for task tracking.
           </p>
           <div className="heroMeta">
-            <span className="metaPill">Proudly built by AI</span>
             <span className="metaPill">Local-first task persistence</span>
-            <span className="metaPill">Fast ship, fast finish workflow</span>
+            <span className="metaPill">Fast add / complete / clear flow</span>
             <span className="metaPill">Designed for desktop and mobile</span>
           </div>
-          <Link className="aboutLink" href="/about">
-            Read the AI build statement
-          </Link>
         </article>
 
         <aside className="statsCard">
           <div className="statsGrid">
             <div className="stat">
-              <span className="statLabel">Tasks tracked by AI-built flow</span>
+              <span className="statLabel">Tasks tracked</span>
               <strong className="statValue">{total}</strong>
             </div>
             <div className="stat">
-              <span className="statLabel">Completed without drag</span>
+              <span className="statLabel">Completed</span>
               <strong className="statValue">{completed}</strong>
             </div>
             <div className="stat">
-              <span className="statLabel">Still in motion</span>
+              <span className="statLabel">Still moving</span>
               <strong className="statValue">{remaining}</strong>
             </div>
           </div>
@@ -152,7 +145,7 @@ export default function TodoApp() {
           <input
             className="input"
             type="text"
-            placeholder="Add the next task AI should help you crush"
+            placeholder="Add the next thing worth finishing"
             value={draft}
             onChange={(event) => setDraft(event.target.value)}
             aria-label="Add a task"
@@ -178,7 +171,7 @@ export default function TodoApp() {
           </div>
 
           <button className="ghostButton" type="button" onClick={clearDone}>
-            Clear completed wins
+            Clear completed
           </button>
         </div>
 
@@ -220,17 +213,10 @@ export default function TodoApp() {
             ))
           ) : (
             <div className="empty">
-              No tasks in this view yet. Add one above and let the AI-built
-              board earn its keep.
+              No tasks in this view yet. Add one above and keep moving.
             </div>
           )}
         </div>
-
-        <p className="footerNote">
-          PulsePad AI is openly proud of being built by AI. The point of this
-          repo is speed, clarity, and shipping without pretending a human did
-          the work Codex actually handled.
-        </p>
       </section>
     </main>
   );
