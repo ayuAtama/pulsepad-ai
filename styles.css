@@ -99,6 +99,25 @@ button {
   max-width: 38rem;
 }
 
+.disclaimer {
+  align-items: flex-start;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  color: var(--text-soft);
+  display: inline-flex;
+  gap: 8px;
+  line-height: 1.55;
+  margin-top: 20px;
+  max-width: 42rem;
+  padding: 14px 16px;
+}
+
+.disclaimer strong {
+  color: var(--text-strong);
+}
+
 .grid {
   display: grid;
   gap: 18px;

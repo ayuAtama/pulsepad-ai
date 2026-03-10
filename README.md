@@ -2,6 +2,12 @@
 
 Signal Lantern is a small, dependency-free focus dashboard built with plain HTML, CSS, and JavaScript.
 
+## Disclaimer
+
+This repository was vibe-coded with an AI agent.
+
+The human side of the work here was prompt direction, taste, and iteration. The implementation was generated and assembled by the agent rather than hand-written line by line.
+
 ## Features
 
 - Live local clock
