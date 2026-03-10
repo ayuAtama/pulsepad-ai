@@ -1,31 +1,27 @@
-# Signal Lantern
+# PulsePad AI
 
-Signal Lantern is a small, dependency-free focus dashboard built with plain HTML, CSS, and JavaScript.
+PulsePad AI is a public-ready to-do list built with Next.js and managed with pnpm. It is designed as a fast, focused task board with local persistence and a clear AI-built identity for `ayuAtama`.
 
-## Disclaimer
+## Stack
 
-This repository was vibe-coded with an AI agent.
-
-The human side of the work here was prompt direction, taste, and iteration. The implementation was generated and assembled by the agent rather than hand-written line by line.
+- Next.js
+- React
+- pnpm
 
 ## Features
 
-- Live local clock
-- Rotating reflection prompts
-- Three built-in visual themes
-- Focus session logging with persistence
-- Minimal local dev server and native Node tests
+- Add, complete, filter, and delete tasks
+- Persist tasks in browser local storage
+- Responsive layout for desktop and mobile
+- Distinct branding around an AI-built workflow
 
-## Development
-
-```bash
-npm run serve
-```
-
-Then open `http://127.0.0.1:4173`.
-
-## Testing
+## Run locally
 
 ```bash
-npm test
+pnpm install
+pnpm dev
 ```
+
+## Notes
+
+The app is ready to publish, but GitHub authentication for the `ayuAtama` account must be valid on this machine before a push can succeed.
