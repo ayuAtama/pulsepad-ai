@@ -31,6 +31,14 @@ pnpm install
 pnpm dev
 ```
 
+## Deploy to GitHub Pages
+
+This repo is configured for GitHub Pages static export.
+
+- The app exports with `next build` using `output: "export"`.
+- The GitHub Actions workflow at `.github/workflows/deploy-pages.yml` publishes the `out/` directory.
+- For this repository, the production site path is `/pulsepad-ai/`, which is handled automatically in CI.
+
 ## Why the repo says this directly
 
 Because the claim belongs on the repository page itself. The GitHub description, topics, and documentation now state clearly that this repo was built by AI, instead of pushing that message into the product UI.
