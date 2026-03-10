@@ -13,11 +13,10 @@ Signal Lantern is a small, dependency-free focus dashboard built with plain HTML
 ## Development
 
 ```bash
-npm install
 npm run serve
 ```
 
-Then open `http://localhost:4173`.
+Then open `http://127.0.0.1:4173`.
 
 ## Testing
 
